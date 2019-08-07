@@ -34,7 +34,8 @@ class PlayersViewController: UIViewController {
     let alert = UIAlertController(title: "Change address", message: "Enter new address for player: \(player.name)", preferredStyle: .alert)
     
     alert.addTextField { (textField) in
-      textField.text = "Enter new address"
+      textField.accessibilityIdentifier = "addressInput"
+      textField.placeholder = "Enter new address"
     }
     
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
