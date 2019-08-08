@@ -1,21 +1,21 @@
 import UIKit
 
 class PlayersViewController: UIViewController {
-    @IBOutlet weak var player1Name: UILabel!
-    @IBOutlet weak var player1Address: UILabel!
-    @IBOutlet weak var player2Name: UILabel!
-    @IBOutlet weak var player2Address: UILabel!
-    
-    
+  @IBOutlet weak var player1Name: UILabel!
+  @IBOutlet weak var player1Address: UILabel!
+  @IBOutlet weak var player2Name: UILabel!
+  @IBOutlet weak var player2Address: UILabel!
+  
+  
   var players: [Player]?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        players = []
-      
-        self.populateInitialData()
-        self.updateUI()
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    players = []
+    
+    self.populateInitialData()
+    self.updateUI()
+  }
   
   private func populateInitialData() {
     let address = Address(fullAddress: "123 Tutorial Street")
@@ -46,14 +46,28 @@ class PlayersViewController: UIViewController {
     
     self.present(alert, animated: true, completion: nil)
   }
-
-    @IBAction func changePlayer1Address(_ sender: Any) {
-      showAlert(player: players![0])
+  
+  func loadPlayerPhotos() {
+    if let player1 = players?[0] {
+      player1.didGetPhotos = { (photos) in
+        self.updatePlayerPhotos(photos)
+      }
+      
+      player1.getPhotos()
     }
-    
-
-    @IBAction func changePlayer2Address(_ sender: Any) {
-      showAlert(player: players![1])
-    }
+  }
+  
+  private func updatePlayerPhotos(_ photos: Array<Any>) {
+    // update photos of player
+  }
+  
+  @IBAction func changePlayer1Address(_ sender: Any) {
+    showAlert(player: players![0])
+  }
+  
+  
+  @IBAction func changePlayer2Address(_ sender: Any) {
+    showAlert(player: players![1])
+  }
   
 }
