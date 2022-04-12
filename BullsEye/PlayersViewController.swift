@@ -1,10 +1,10 @@
 import UIKit
 
 class PlayersViewController: UIViewController {
-    @IBOutlet weak var player1Name: UILabel!
-    @IBOutlet weak var player1Address: UILabel!
-    @IBOutlet weak var player2Name: UILabel!
-    @IBOutlet weak var player2Address: UILabel!
+    @IBOutlet var player1Name: UILabel!
+    @IBOutlet var player1Address: UILabel!
+    @IBOutlet var player2Name: UILabel!
+    @IBOutlet var player2Address: UILabel!
 
     var players: [Player]?
 
