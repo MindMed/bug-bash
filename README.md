@@ -1,4 +1,4 @@
-# HealthMode iOS Bug bash
+# MindMed iOS Bug bash
 
 ## Description
 
